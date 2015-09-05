@@ -18,7 +18,8 @@ A docker compose file which gets a media server including
 * cd into the respository: `cd clean_socs`
 * Link to the data directory. For example, assuming you are using openmediavault, and have
 a directory called "Data", the default location is /export/Data, and the command to
-create the link is: `ln -S /export/Data ./data
+create the link is: `ln -S /export/Data ./data`
+* Create the config directories: `mkdir -p plex sabnzb couchpotato sickbeard`
 * Download and run: `docker-compose up -d`
 * Monitor progress: `docker-compose logs`
 
