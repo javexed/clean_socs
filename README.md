@@ -5,11 +5,14 @@ A docker compose file which gets a media server including
 * Couchpotato
 * Sickbeard
 * Plex (just for fun)
+
 ## Installation
+
 ### Prerequisites
 * In this case, the underlying OS was based on openmediavault (http://www.openmediavault.org/)
 * Ensure that you install docker on debian (wheezy) as that was openmediavault is based on (https://docs.docker.com/installation/debian/#debian-wheezy-stable-7-x-64-bit)
 * Install docker-compose: https://docs.docker.com/compose/install/
+
 ### Install, Download, and Run
 * Clone the respository
 * cd into the respository 
@@ -18,6 +21,7 @@ a directory called "Data", the default location is /export/Data, and the command
 create the link is: `ln -S /export/Data ./data
 * Download and run: `docker-compose up -d`
 * Monitor progress: `docker-compose logs`
+
 ### Configure (assuming based on openmediavault)
 Refer to each for specifics on configuration
 * Start with Sabnzb at: http://openmediavault:8080
@@ -28,6 +32,7 @@ Refer to each for specifics on configuration
 
 ## Usage
 Refer to docker-compose for commands to control.
+
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
