@@ -1,0 +1,60 @@
+sabnzb:
+  image: timhaak/sabnzbd
+  ports:
+    - 8080:8080
+    - 9090:9090
+  volumes:
+    - ./sabnzb:/config
+    - ./data:/data
+    - /etc/localtime:/etc/localtime:ro
+  hostname: openmediavault
+  restart: always
+sickbeard:
+  image: timhaak/sickbeard
+  volumes:
+    - ./sickbeard:/config
+    - ./data:/data
+    - /etc/localtime:/etc/localtime:ro
+  ports: 
+    - 8081:8081
+  links:
+    - sabnzb
+  restart: always
+couchpotato:
+  image: timhaak/couchpotato
+  volumes:
+    - ./couchpotato:/config
+    - ./data:/data
+    - /etc/localtime:/etc/localtime:ro
+  ports:
+    - 5050:5050
+  links:
+    - sabnzb
+  restart: always
+plex:
+  image: timhaak/plex
+  volumes:
+    - ./plex:/config
+    - ./data:/data
+    - /etc/localtime:/etc/localtime:ro
+  ports:
+    - 32400:32400
+  restart: always
+owncloud:
+  image: owncloud
+  ports:
+    - 8082:80
+  volumes:
+    - ./data/owncloud:/var/www/html/data
+    - /etc/localtime:/etc/localtime:ro
+  links:
+    - mariadb
+  restart: always
+mariadb:
+  image: mariadb
+  environment:
+    - MYSQL_ROOT_PASSWORD=owncloud_only
+  volumes:
+    - ./data/owncloud:/var/www/html/data
+    - /etc/localtime:/etc/localtime:ro
+  restart: always
