@@ -14,8 +14,8 @@ A docker compose file which gets a media server including
 * Install docker-compose: https://docs.docker.com/compose/install/
 
 ### Install, Download, and Run
-* Clone the respository
-* cd into the respository 
+* Clone the respository: `git clone https://github.com/javexed/clean_socs`
+* cd into the respository: `cd clean_socs`
 * Link to the data directory. For example, assuming you are using openmediavault, and have
 a directory called "Data", the default location is /export/Data, and the command to
 create the link is: `ln -S /export/Data ./data
