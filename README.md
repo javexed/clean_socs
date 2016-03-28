@@ -1,10 +1,8 @@
 # Clean SOCS
 A docker compose file which gets a media server including
 * Sabnzb
-* Owncloud
 * Couchpotato
 * Sickbeard
-* Plex (just for fun)
 
 ## Installation
 
@@ -28,8 +26,6 @@ Refer to each for specifics on configuration
 * Start with Sabnzb at: http://openmediavault:8080
 * Sickbeard at: http://openmediavault:8081
 * Couchpotato at: http://openmediavault:5050
-* Owncloud at: http://openmediavault:8082
-* Plex at: http://openmediavault:32400
 
 ## Usage
 Refer to docker-compose for commands to control.
@@ -44,8 +40,6 @@ Refer to docker-compose for commands to control.
 
 ## Credits
 This just ties the docker images together, please refer to:
-* Tim Haak for Sabnzb, Couchpotato, Sickbeard, and Plex: https://github.com/timhaak
-* Official Owncloud: https://hub.docker.com/_/owncloud/
-* Official Mariadb: https://hub.docker.com/_/mariadb/
+* Tim Haak for Sabnzb, Couchpotato, Sickbeard: https://github.com/timhaak
 ## License
 Do with it as you will.
