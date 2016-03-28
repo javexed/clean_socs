@@ -7,7 +7,7 @@ sabnzb:
     - ./sabnzb:/config
     - ./data:/data
     - /etc/localtime:/etc/localtime:ro
-  hostname: openmediavault
+  hostname: docker
   restart: always
 sickbeard:
   image: timhaak/sickbeard
@@ -30,31 +30,17 @@ couchpotato:
     - 5050:5050
   links:
     - sabnzb
+    - deluge
   restart: always
-plex:
-  image: timhaak/plex
-  volumes:
-    - ./plex:/config
-    - ./data:/data
-    - /etc/localtime:/etc/localtime:ro
+deluge:
+  image: jakexks/deluge-torrent-seedbox
   ports:
-    - 32400:32400
-  restart: always
-owncloud:
-  image: owncloud
-  ports:
-    - 8082:80
-  volumes:
-    - ./data/owncloud:/var/www/html/data
-    - /etc/localtime:/etc/localtime:ro
-  links:
-    - mariadb
-  restart: always
-mariadb:
-  image: mariadb
-  environment:
-    - MYSQL_ROOT_PASSWORD=owncloud_only
-  volumes:
-    - ./data/owncloud:/var/www/html/data
-    - /etc/localtime:/etc/localtime:ro
+   - 8083:80
+   - 8112:8112
+   - 58846:58846
+   - 58847:58847
+   - 58847:58847/udp
+  volumes: 
+   - ./data/deluge/:/home/deluge
+   - /etc/localtime:/etc/localtime:ro
   restart: always
